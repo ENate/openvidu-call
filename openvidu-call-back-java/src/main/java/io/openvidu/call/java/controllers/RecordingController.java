@@ -5,8 +5,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+// import javax.servlet.http.HttpServletRequest;
+// import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -28,6 +28,8 @@ import io.openvidu.call.java.services.ProxyService;
 import io.openvidu.java.client.OpenViduHttpException;
 import io.openvidu.java.client.OpenViduJavaClientException;
 import io.openvidu.java.client.Recording;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
 @CrossOrigin(origins = "*")
 @RestController
@@ -67,9 +69,9 @@ public class RecordingController {
 			boolean isAdminSessionValid = authService.isAdminSessionValid(adminToken);
 
 			if (!IS_RECORDING_ENABLED) {
-			    String message = "Recording is disabled";
-			    System.err.println(message);
-			    return new ResponseEntity<>(message, HttpStatus.FORBIDDEN);
+				String message = "Recording is disabled";
+				System.err.println(message);
+				return new ResponseEntity<>(message, HttpStatus.FORBIDDEN);
 			}
 
 			if (isAdminSessionValid) {
